@@ -1,0 +1,59 @@
+<html>
+  <head>
+        <title>Temperature convertor</title>
+        <meta charset="utf-8">
+        <style>
+            body{
+                background-color:blueviolet;
+                text-align:center;
+                top: 100%;
+            }
+            h1{
+                background-color: gold;
+                color: palevioletred;
+                animation: changecolor 15s infinite;
+            }
+            p,h2{
+                color:rgb(255, 220, 231);
+                font-size:large;
+                font-style: italic;
+            
+            }
+            @keyframes changecolor {
+                0%{background-color: red;}
+                25%{background-color: rgb(0, 119, 255); }
+                50%{background-color: green;}
+                75%{background-color: brown;}
+                100%{background-color: rgb(255, 0, 242);}
+            }
+        </style>
+    <script>
+      function convert() {
+        let fr = (parseInt(document.getElementById("temp").value) - 32) / 1.8;
+        let cr = parseInt(document.getElementById("temp").value) * 1.8 + 32;
+        if (document.getElementById("foh").checked) {
+          document.getElementById("con").value = fr;
+        }
+        if (document.getElementById("cel").checked) {
+
+          document.getElementById("con").value = cr;
+
+        }
+      }
+    </script>
+  </head>
+  <body>
+    
+    <h1><marquee>  Temperature converter  </marquee></h1>
+    <h2>Temperature:<input type="number" id="temp"></h2><br/>
+    <h2>Select temperature type</h2>
+    <p>
+    <input type="radio" id="foh" name="tems"/>
+    <label for="foh">fohrenheit</label>
+    <input type="radio" id="cel" name="tems" />
+    <label for="cel">celsius</label><br /><br/>
+    <button type="button" onclick="convert()">Convert</button><br /><br/>
+    Converted temperature:<input type="text" id="con" /><br/>
+    </p>
+  </body>
+</html>
